@@ -1,0 +1,42 @@
+package com.cooper.cooperposts2022.posts.domain;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Question {
+
+    @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    private String id;
+
+    @Column(nullable = false, length = 300)
+    private String content;
+
+    @Column(nullable = false, length = 50)
+    private String author;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    private Question(String content, String author) {
+        this.content = content;
+        this.author = author;
+    }
+
+    public static Question create(String content, String author) {
+        return new Question(content, author);
+    }
+
+}
