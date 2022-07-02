@@ -16,8 +16,8 @@ import javax.persistence.ManyToOne;
 public class Question {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
 
     @Column(nullable = false, length = 300)
