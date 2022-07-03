@@ -47,9 +47,9 @@ class PostControllerTest {
         assertAll(
                 () -> resultActions.andExpect(status().isOk()),
                 () -> resultActions.andExpect(content().contentType(MediaType.APPLICATION_JSON)),
-                () -> resultActions.andExpect(jsonPath("$.title").value("제목1")),
-                () -> resultActions.andExpect(jsonPath("$.content").value("내용1")),
-                () -> resultActions.andExpect(jsonPath("$.author").value("cooper"))
+                () -> resultActions.andExpect(jsonPath("$.data.title").value("제목1")),
+                () -> resultActions.andExpect(jsonPath("$.data.content").value("내용1")),
+                () -> resultActions.andExpect(jsonPath("$.data.author").value("cooper"))
         );
     }
 
