@@ -1,5 +1,6 @@
 package com.cooper.cooperposts2022.posts.domain;
 
+import com.cooper.cooperposts2022.posts.dto.PostUpdateRequestDto;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,6 +48,12 @@ public class Post {
 
     public void addAnswer(Question question) {
         questions.addAnswer(question);
+    }
+
+    public void updatePost(PostUpdateRequestDto postUpdateRequestDto) {
+        this.title = postUpdateRequestDto.getTitle();
+        this.author = postUpdateRequestDto.getAuthor();
+        this.content = postUpdateRequestDto.getContent();
     }
 
 }
