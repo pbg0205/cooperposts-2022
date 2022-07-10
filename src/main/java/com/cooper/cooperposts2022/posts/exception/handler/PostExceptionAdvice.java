@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.posts.exception.advice;
+package com.cooper.cooperposts2022.posts.exception.handler;
 
 import com.cooper.cooperposts2022.common.ApiResult;
 import com.cooper.cooperposts2022.posts.exception.PostNotFoundException;

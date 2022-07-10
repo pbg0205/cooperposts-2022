@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.posts.exception.advice;
+package com.cooper.cooperposts2022.posts.exception.handler;
 
 import com.cooper.cooperposts2022.posts.application.PostService;
 import com.cooper.cooperposts2022.posts.exception.PostNotFoundException;
