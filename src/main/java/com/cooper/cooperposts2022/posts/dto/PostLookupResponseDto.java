@@ -1,13 +1,14 @@
 package com.cooper.cooperposts2022.posts.dto;
 
 import com.cooper.cooperposts2022.posts.domain.Post;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
 @Getter
-@RequiredArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class PostLookupResponseDto {
 
     private final String id;
