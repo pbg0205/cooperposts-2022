@@ -20,12 +20,14 @@ public class PostValidationExceptionAdvice {
             MethodArgumentNotValidException methodArgumentNotValidException
     ) {
         Map<String, String> errors = methodArgumentNotValidException.getBindingResult()
-                .getAllErrors().stream()
+                .getAllErrors()
+                .stream()
                 .collect(Collectors.toMap(
-                        error -> ((FieldError) error).getField(), DefaultMessageSourceResolvable::getDefaultMessage));
+                        error -> ((FieldError) error).getField(),
+                        DefaultMessageSourceResolvable::getDefaultMessage)
+                );
 
-        ApiResult<Map<String, String>> apiResult
-                = ApiResult.fail(HttpStatus.BAD_REQUEST, errors);
+        ApiResult<Map<String, String>> apiResult = ApiResult.fail(HttpStatus.BAD_REQUEST, errors);
 
         return ResponseEntity.badRequest().body(apiResult);
     }
