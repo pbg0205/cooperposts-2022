@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(PostLookupController.class)
 @AutoConfigureMockMvc
-class PostExceptionAdviceTest {
+class PostNotFoundExceptionAdviceTest {
 
     @Autowired
     private MockMvc mockMvc;
