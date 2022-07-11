@@ -10,7 +10,7 @@ public class ApiResult<T> {
 
     private int httpStatus;
     private T data;
-    private String message;
+    private T message;
 
     @SuppressWarnings("unchecked")
     public static <T> ApiResult<T> success(T data, HttpStatus httpStatus) {
@@ -21,7 +21,7 @@ public class ApiResult<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> ApiResult<T> fail(HttpStatus httpStatus, String message) {
+    public static <T> ApiResult<T> fail(HttpStatus httpStatus, T message) {
         return (ApiResult<T>) ApiResult.builder()
                 .httpStatus(httpStatus.value())
                 .message(message)
