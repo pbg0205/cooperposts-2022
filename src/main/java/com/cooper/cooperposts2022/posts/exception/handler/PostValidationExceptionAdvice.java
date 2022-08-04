@@ -1,6 +1,7 @@
 package com.cooper.cooperposts2022.posts.exception.handler;
 
 import com.cooper.cooperposts2022.common.ApiResult;
+import com.cooper.cooperposts2022.logging.DebugRequired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class PostValidationExceptionAdvice {
 
+    @DebugRequired
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResult<Map<String, String>>> handleRequestValidationException(
             MethodArgumentNotValidException methodArgumentNotValidException

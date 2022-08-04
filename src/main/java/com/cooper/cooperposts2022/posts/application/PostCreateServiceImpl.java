@@ -1,5 +1,6 @@
 package com.cooper.cooperposts2022.posts.application;
 
+import com.cooper.cooperposts2022.logging.DebugRequired;
 import com.cooper.cooperposts2022.posts.domain.Post;
 import com.cooper.cooperposts2022.posts.domain.PostRepository;
 import com.cooper.cooperposts2022.posts.dto.PostCreateRequestDto;
@@ -14,6 +15,7 @@ public class PostCreateServiceImpl implements PostCreateService {
     private final PostRepository postRepository;
 
     @Override
+    @DebugRequired
     public PostCreateResponseDto createPost(PostCreateRequestDto postCreateRequestDto) {
         Post post = postRepository.save(postCreateRequestDto.toEntity());
         return PostCreateResponseDto.fromEntity(post);

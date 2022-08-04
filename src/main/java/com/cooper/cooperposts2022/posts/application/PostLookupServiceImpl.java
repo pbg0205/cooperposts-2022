@@ -1,5 +1,6 @@
 package com.cooper.cooperposts2022.posts.application;
 
+import com.cooper.cooperposts2022.logging.DebugRequired;
 import com.cooper.cooperposts2022.posts.domain.Post;
 import com.cooper.cooperposts2022.posts.domain.PostRepository;
 import com.cooper.cooperposts2022.posts.dto.PostLookupResponseDto;
@@ -14,6 +15,7 @@ public class PostLookupServiceImpl implements PostLookupService {
     private final PostRepository postRepository;
 
     @Override
+    @DebugRequired
     public PostLookupResponseDto findById(String postId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
         return PostLookupResponseDto.fromEntity(post);

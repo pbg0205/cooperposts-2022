@@ -1,5 +1,6 @@
 package com.cooper.cooperposts2022.posts.application;
 
+import com.cooper.cooperposts2022.logging.DebugRequired;
 import com.cooper.cooperposts2022.posts.domain.Post;
 import com.cooper.cooperposts2022.posts.domain.PostRepository;
 import com.cooper.cooperposts2022.posts.dto.PostUpdateRequestDto;
@@ -18,6 +19,7 @@ public class PostUpdateServiceImpl implements PostUpdateService {
     private final PostRepository postRepository;
 
     @Override
+    @DebugRequired
     public PostUpdateResponseDto updatePost(String postId, PostUpdateRequestDto postUpdateRequestDto) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
         post.updatePost(postUpdateRequestDto);
