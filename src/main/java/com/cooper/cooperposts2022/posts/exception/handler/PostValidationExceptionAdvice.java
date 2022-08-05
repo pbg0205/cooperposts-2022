@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class PostValidationExceptionAdvice {
 
-    @DebugRequired
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResult<Map<String, String>>> handleRequestValidationException(
             MethodArgumentNotValidException methodArgumentNotValidException
