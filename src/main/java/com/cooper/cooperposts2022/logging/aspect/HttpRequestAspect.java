@@ -19,7 +19,7 @@ public class HttpRequestAspect {
 
     private static final String REQUEST_ID_KEY_NAME = "requestId";
 
-    @Before("com.cooper.cooperposts2022.logging.pointcuts.HttpMethodPointcuts.allHttpMethodsPointcut()")
+    @Before("com.cooper.cooperposts2022.logging.pointcuts.BeanPointcuts.allControllersPointcut()")
     public void debugApiRequest() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(
                 RequestContextHolder.getRequestAttributes()))
