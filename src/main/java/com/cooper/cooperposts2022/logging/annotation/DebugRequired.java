@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.logging;
+package com.cooper.cooperposts2022.logging.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

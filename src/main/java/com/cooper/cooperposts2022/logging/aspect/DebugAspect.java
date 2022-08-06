@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.logging;
+package com.cooper.cooperposts2022.logging.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -24,7 +24,7 @@ public class DebugAspect {
 
     private static final String REQUEST_ID_KEY_NAME = "requestId";
 
-    @Pointcut("@annotation(com.cooper.cooperposts2022.logging.DebugRequired)")
+    @Pointcut("@annotation(com.cooper.cooperposts2022.logging.annotation.DebugRequired)")
     public void debugRequired() {}
 
     @AfterReturning(pointcut = "debugRequired()")
@@ -46,6 +46,5 @@ public class DebugAspect {
                 exception.getMessage()
         );
     }
-
 
 }

@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.logging;
+package com.cooper.cooperposts2022.logging.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,7 +19,7 @@ public class HttpRequestAspect {
 
     private static final String REQUEST_ID_KEY_NAME = "requestId";
 
-    @Before("HttpMethodPointcuts.allHttpMethodsPointcut()")
+    @Before("com.cooper.cooperposts2022.logging.pointcuts.HttpMethodPointcuts.allHttpMethodsPointcut()")
     public void debugApiRequest() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(
                 RequestContextHolder.getRequestAttributes()))

@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.logging;
+package com.cooper.cooperposts2022.logging.template;
 
 import com.cooper.cooperposts2022.common.ApiResult;
 import lombok.extern.slf4j.Slf4j;

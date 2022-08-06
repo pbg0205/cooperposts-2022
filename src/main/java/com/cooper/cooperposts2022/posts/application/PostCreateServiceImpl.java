@@ -1,6 +1,6 @@
 package com.cooper.cooperposts2022.posts.application;
 
-import com.cooper.cooperposts2022.logging.DebugRequired;
+import com.cooper.cooperposts2022.logging.annotation.DebugRequired;
 import com.cooper.cooperposts2022.posts.domain.Post;
 import com.cooper.cooperposts2022.posts.domain.PostRepository;
 import com.cooper.cooperposts2022.posts.dto.PostCreateRequestDto;

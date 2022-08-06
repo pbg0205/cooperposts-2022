@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.logging;
+package com.cooper.cooperposts2022.logging.pointcuts;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
