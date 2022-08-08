@@ -1,6 +1,7 @@
 package com.cooper.cooperposts2022.posts.ui;
 
 import com.cooper.cooperposts2022.common.ApiResult;
+import com.cooper.cooperposts2022.logging.annotation.StopWatchRequired;
 import com.cooper.cooperposts2022.posts.application.PostLookupService;
 import com.cooper.cooperposts2022.posts.dto.PostLookupResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class PostLookupController {
     private final PostLookupService postLookupService;
 
     @GetMapping("/{postId}")
+    @StopWatchRequired
     public ResponseEntity<ApiResult<PostLookupResponseDto>> findById(@PathVariable String postId) {
         PostLookupResponseDto postLookupResponseDto = postLookupService.findById(postId);
         ApiResult<PostLookupResponseDto> apiResult = ApiResult.success(postLookupResponseDto, HttpStatus.OK);
