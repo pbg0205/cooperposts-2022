@@ -6,12 +6,13 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 @ToString
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class PostLookupResponseDto {
+public class PostLookupResponseDto implements Serializable {
 
     private final String id;
     private final String title;
