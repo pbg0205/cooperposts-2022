@@ -8,8 +8,10 @@ import com.cooper.cooperposts2022.posts.exception.PostNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class PostLookupServiceImpl implements PostLookupService {
 

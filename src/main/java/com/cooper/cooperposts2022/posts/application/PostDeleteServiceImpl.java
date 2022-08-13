@@ -6,8 +6,10 @@ import com.cooper.cooperposts2022.posts.domain.PostRepository;
 import com.cooper.cooperposts2022.posts.exception.PostNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class PostDeleteServiceImpl implements PostDeleteService {
 
