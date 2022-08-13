@@ -7,8 +7,10 @@ import com.cooper.cooperposts2022.posts.dto.PostUpdateRequestDto;
 import com.cooper.cooperposts2022.posts.dto.PostUpdateResponseDto;
 import com.cooper.cooperposts2022.posts.exception.PostNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.LockModeType;
 import javax.transaction.Transactional;
 
 @Service
@@ -20,6 +22,7 @@ public class PostUpdateServiceImpl implements PostUpdateService {
 
     @Override
     @DebugRequired
+    @Lock(value = LockModeType.PESSIMISTIC_WRITE)
     public PostUpdateResponseDto updatePost(String postId, PostUpdateRequestDto postUpdateRequestDto) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
         post.updatePost(postUpdateRequestDto);
