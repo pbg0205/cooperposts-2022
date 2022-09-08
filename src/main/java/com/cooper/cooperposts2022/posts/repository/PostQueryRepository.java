@@ -1,4 +1,6 @@
-package com.cooper.cooperposts2022.posts.domain;
+package com.cooper.cooperposts2022.posts.repository;
+
+import com.cooper.cooperposts2022.posts.domain.Post;
 
 import java.util.Optional;
 

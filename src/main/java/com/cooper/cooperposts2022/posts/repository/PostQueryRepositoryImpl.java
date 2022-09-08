@@ -1,7 +1,6 @@
-package com.cooper.cooperposts2022.posts.infra;
+package com.cooper.cooperposts2022.posts.repository;
 
 import com.cooper.cooperposts2022.posts.domain.Post;
-import com.cooper.cooperposts2022.posts.domain.PostQueryRepository;
 import com.cooper.cooperposts2022.posts.domain.QPost;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

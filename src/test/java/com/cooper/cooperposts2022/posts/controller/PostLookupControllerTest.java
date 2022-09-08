@@ -1,4 +1,4 @@
-package com.cooper.cooperposts2022.posts.ui;
+package com.cooper.cooperposts2022.posts.controller;
 
 import com.cooper.cooperposts2022.posts.application.PostLookupService;
 import com.cooper.cooperposts2022.posts.domain.Post;

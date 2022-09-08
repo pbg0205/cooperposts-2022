@@ -2,7 +2,7 @@ package com.cooper.cooperposts2022.posts.application;
 
 import com.cooper.cooperposts2022.logging.annotation.DebugRequired;
 import com.cooper.cooperposts2022.posts.domain.Post;
-import com.cooper.cooperposts2022.posts.domain.PostQueryRepository;
+import com.cooper.cooperposts2022.posts.repository.PostQueryRepository;
 import com.cooper.cooperposts2022.posts.dto.PostLookupResponseDto;
 import com.cooper.cooperposts2022.posts.exception.PostNotFoundException;
 import lombok.RequiredArgsConstructor;
