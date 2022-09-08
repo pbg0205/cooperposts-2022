@@ -14,7 +14,6 @@ import javax.persistence.LockModeType;
 import javax.transaction.Transactional;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class PostUpdateServiceImpl implements PostUpdateService {
 
