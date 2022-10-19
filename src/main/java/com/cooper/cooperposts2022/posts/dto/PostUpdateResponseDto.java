@@ -17,7 +17,7 @@ public class PostUpdateResponseDto {
     private final String author;
 
     public static PostUpdateResponseDto toEntity(Post post) {
-        return new PostUpdateResponseDto(post.getId(), post.getTitle(), post.getContent(), post.getAuthor());
+        return new PostUpdateResponseDto(post.getId(), post.getTitle(), post.getContent(), post.getUserId());
     }
 
 }

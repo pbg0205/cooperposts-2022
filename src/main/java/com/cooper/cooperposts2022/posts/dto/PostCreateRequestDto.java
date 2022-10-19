@@ -19,10 +19,10 @@ public class PostCreateRequestDto {
     private final String content;
 
     @NotNull
-    private final String author;
+    private final String userId;
 
     public Post toEntity() {
-        return Post.create(this.title, this.content, this.author);
+        return Post.create(this.title, this.content, this.userId);
     }
 
 }

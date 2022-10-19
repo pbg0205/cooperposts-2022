@@ -17,7 +17,7 @@ public class PostCreateResponseDto {
     private final String author;
 
     public static PostCreateResponseDto fromEntity(Post post) {
-        return new PostCreateResponseDto(post.getId(), post.getTitle(), post.getContent(), post.getAuthor());
+        return new PostCreateResponseDto(post.getId(), post.getTitle(), post.getContent(), post.getUserId());
     }
 
 }

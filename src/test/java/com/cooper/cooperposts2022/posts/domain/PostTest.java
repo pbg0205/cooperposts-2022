@@ -27,7 +27,7 @@ class PostTest {
 
         //then
         assertAll(
-                () -> assertThat(post.getAuthor()).isEqualTo("park"),
+                () -> assertThat(post.getUserId()).isEqualTo("park"),
                 () -> assertThat(post.getTitle()).isEqualTo("수정제목"),
                 () -> assertThat(post.getContent()).isEqualTo("수정게시글")
         );

@@ -30,20 +30,20 @@ public class Post {
     @Column(nullable = false)
     private String content;
 
-    @Column(nullable = false, length = 50)
-    private String author;
+    @Column(length = 50)
+    private String userId;
 
     @Embedded
     private final Questions questions = new Questions();
 
-    private Post(String title, String content, String author) {
+    private Post(String title, String content, String userId) {
         this.title = title;
         this.content = content;
-        this.author = author;
+        this.userId = userId;
     }
 
-    public static Post create(String title, String content, String author) {
-        return new Post(title, content, author);
+    public static Post create(String title, String content, String userId) {
+        return new Post(title, content, userId);
     }
 
     public void addAnswer(Question question) {
@@ -52,7 +52,7 @@ public class Post {
 
     public void updatePost(PostUpdateRequestDto postUpdateRequestDto) {
         this.title = postUpdateRequestDto.getTitle();
-        this.author = postUpdateRequestDto.getAuthor();
+        this.userId = postUpdateRequestDto.getAuthor();
         this.content = postUpdateRequestDto.getContent();
     }
 

@@ -25,7 +25,7 @@ public class PostLookupResponseDto implements Serializable {
                 post.getId(),
                 post.getTitle(),
                 post.getContent(),
-                post.getAuthor(),
+                post.getUserId(),
                 post.getQuestions().convertToLookupResponseDtos());
     }
 
