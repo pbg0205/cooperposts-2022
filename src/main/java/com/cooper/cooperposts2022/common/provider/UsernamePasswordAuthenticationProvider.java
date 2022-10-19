@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 public class UsernamePasswordAuthenticationProvider implements AuthenticationProvider {
 
     private final JpaUserDetailService userDetailService;
-
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -38,7 +37,7 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
     }
 
     private boolean matchesPassword(String password, UserDetails userDetails) {
-        return passwordEncoder.matches(userDetails.getPassword(), password);
+        return passwordEncoder.matches(password, userDetails.getPassword());
     }
 
     @Override
