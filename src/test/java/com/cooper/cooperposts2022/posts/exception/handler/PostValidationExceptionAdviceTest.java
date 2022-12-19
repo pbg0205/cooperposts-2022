@@ -8,6 +8,7 @@ import com.cooper.cooperposts2022.posts.dto.PostUpdateRequestDto;
 import com.cooper.cooperposts2022.posts.controller.PostCreateController;
 import com.cooper.cooperposts2022.posts.controller.PostUpdateController;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(value = {PostCreateController.class, PostUpdateController.class})
 @AutoConfigureMockMvc
+@Disabled
 class PostValidationExceptionAdviceTest {
 
     @Autowired
