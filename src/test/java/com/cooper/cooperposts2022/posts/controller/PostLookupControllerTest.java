@@ -4,6 +4,7 @@ import com.cooper.cooperposts2022.posts.application.PostLookupService;
 import com.cooper.cooperposts2022.posts.domain.Post;
 import com.cooper.cooperposts2022.posts.domain.Question;
 import com.cooper.cooperposts2022.posts.dto.PostLookupResponseDto;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(PostLookupController.class)
 @AutoConfigureMockMvc
+@Disabled
 public class PostLookupControllerTest {
 
     @Autowired

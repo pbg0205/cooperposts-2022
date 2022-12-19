@@ -1,6 +1,7 @@
 package com.cooper.cooperposts2022.posts.controller;
 
 import com.cooper.cooperposts2022.posts.application.PostDeleteService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @WebMvcTest(PostDeleteController.class)
+@Disabled
 class PostDeleteControllerTest {
 
     @Autowired
