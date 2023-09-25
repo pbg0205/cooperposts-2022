@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### docker compose volume
-./docker/mysql/**
+/docker/mysql/**
