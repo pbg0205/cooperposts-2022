@@ -1,13 +1,13 @@
-package com.cooper.cooperposts2022;
+package com.cooper.cooperpost;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CooperPosts2022Application {
+public class CooperPostApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CooperPosts2022Application.class, args);
+        SpringApplication.run(CooperPostApplication.class, args);
     }
 
 }

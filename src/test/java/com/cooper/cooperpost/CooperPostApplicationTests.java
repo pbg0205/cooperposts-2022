@@ -1,10 +1,10 @@
-package com.cooper.cooperposts2022;
+package com.cooper.cooperpost;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CooperPosts2022ApplicationTests {
+class CooperPostApplicationTests {
 
     @Test
     void contextLoads() {
