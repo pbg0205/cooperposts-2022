@@ -36,7 +36,6 @@ dependencies {
     //redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-cache'
-    implementation 'it.ozimov:embedded-redis:0.7.3'
 
     //web
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -52,9 +51,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    //h2
-    implementation 'com.h2database:h2'
-
+    //flyway
+    implementation 'org.flywaydb:flyway-core:9.21.0'
+    implementation 'org.flywaydb:flyway-mysql:9.21.0'
 }
 
 tasks.named('test') {
