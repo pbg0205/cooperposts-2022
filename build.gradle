@@ -54,6 +54,9 @@ dependencies {
     //flyway
     implementation 'org.flywaydb:flyway-core:9.21.0'
     implementation 'org.flywaydb:flyway-mysql:9.21.0'
+
+    //mysql
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 tasks.named('test') {
