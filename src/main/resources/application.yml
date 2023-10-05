@@ -1,4 +1,8 @@
 spring:
+  messages:
+    basename: messages # default value
+    encoding: UTF-8 # default value
+    fallback-to-system-locale: false
   datasource:
     username: root
     password: cooper2021
