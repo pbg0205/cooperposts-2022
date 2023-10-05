@@ -1,4 +1,4 @@
-package com.cooper.cooperpost.security.config;
+package com.cooper.cooperpost.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
