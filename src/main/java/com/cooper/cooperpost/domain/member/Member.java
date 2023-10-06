@@ -29,7 +29,7 @@ public class Member {
 	private UUID id;
 
 	@Column(nullable = false, length = 50)
-	private String username;
+	private String name;
 
 	@Column(nullable = false, length = 150)
 	@ValidEmail
@@ -43,15 +43,15 @@ public class Member {
 	@ValidPassword
 	private String password;
 
-	private Member(UUID id, String username, String email, String password) {
+	private Member(UUID id, String name, String email, String password) {
 		this.id = id;
-		this.username = username;
+		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
 
-	public static Member create(String username, String email, String password) {
-		return new Member(generateUUIDv7(), username, email, password);
+	public static Member create(String name, String email, String password) {
+		return new Member(generateUUIDv7(), name, email, password);
 	}
 
 	private static UUID generateUUIDv7() {
