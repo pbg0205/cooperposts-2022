@@ -7,16 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnTransformer;
 import org.hibernate.annotations.Type;
 
 import com.github.f4b6a3.uuid.UuidCreator;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import com.cooper.cooperpost.validation.member.annotation.ValidEmail;
-import com.cooper.cooperpost.validation.member.annotation.ValidPassword;
 
 @Entity
 @Table(name = "tb_member")
@@ -33,14 +32,10 @@ public class Member {
 
 	@Column(nullable = false, length = 150)
 	@ValidEmail
+	@Getter
 	private String email;
 
 	@Column(nullable = false)
-	@ColumnTransformer(
-		read = "convert_from(decrypt(decode(password,'hex'),'ENC_KEY','aes'),'utf8')",
-		write = "encode(encrypt(convert_to(?,'utf8'),'ENC_KEY','aes'),'hex')"
-	)
-	@ValidPassword
 	private String password;
 
 	private Member(UUID id, String name, String email, String password) {
