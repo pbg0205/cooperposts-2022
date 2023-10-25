@@ -12,7 +12,7 @@ spring:
     generate-ddl: false
     open-in-view: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
   flyway:
     user: root
     password: cooper2021
