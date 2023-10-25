@@ -60,6 +60,9 @@ dependencies {
 
     //time-based-uuid
     implementation 'com.github.f4b6a3:uuid-creator:5.3.3'
+
+    // rest assured
+    testImplementation 'io.rest-assured:rest-assured:3.3.0'
 }
 
 tasks.named('test') {
