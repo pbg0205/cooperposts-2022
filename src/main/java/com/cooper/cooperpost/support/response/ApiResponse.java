@@ -2,8 +2,8 @@ package com.cooper.cooperpost.support.response;
 
 import lombok.Getter;
 
+import com.cooper.cooperpost.support.error.ErrorCode;
 import com.cooper.cooperpost.support.error.ErrorMessage;
-import com.cooper.cooperpost.support.error.ErrorType;
 
 @Getter
 public class ApiResponse<S> {
@@ -28,12 +28,12 @@ public class ApiResponse<S> {
 		return new ApiResponse<>(ResultType.SUCCESS, data, null);
 	}
 
-	public static ApiResponse<?> error(ErrorType error) {
-		return new ApiResponse<>(ResultType.ERROR, null, new ErrorMessage(error));
+	public static ApiResponse<?> error(ErrorCode errorCode, String message) {
+		return new ApiResponse<>(ResultType.ERROR, null, new ErrorMessage(errorCode, message));
 	}
 
-	public static ApiResponse<?> error(ErrorType error, Object errorData) {
-		return new ApiResponse<>(ResultType.ERROR, null, new ErrorMessage(error, errorData));
+	public static ApiResponse<?> error(ErrorCode errorCode, String message, Object errorData) {
+		return new ApiResponse<>(ResultType.ERROR, null, new ErrorMessage(errorCode, message, errorData));
 	}
 
 
