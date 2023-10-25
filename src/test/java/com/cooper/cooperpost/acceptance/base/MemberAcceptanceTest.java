@@ -10,9 +10,10 @@ import org.springframework.http.HttpStatus;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 
+@DisplayName("멤버 인수 테스트")
 public class MemberAcceptanceTest extends AcceptanceTestBase {
 
-	@DisplayName("회원 가입을 한다")
+	@DisplayName("회원 가입 성공")
 	@Test
 	void createMember() {
 		//given, when
