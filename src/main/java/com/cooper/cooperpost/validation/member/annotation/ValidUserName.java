@@ -11,17 +11,18 @@ import javax.validation.Payload;
 
 import org.hibernate.validator.constraints.Length;
 
-@Length(min = 3, max = 30)
+@Length(min = 3, max = 30, message = "{error.E40003.message}")
 @Constraint(validatedBy = {})
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER })
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR,
+	ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface ValidUserName {
 
-    String message() default "invalid username";
+	String message() default "invalid username";
 
-    Class<?>[] groups() default {};
+	Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {};
+	Class<? extends Payload>[] payload() default {};
 
 }

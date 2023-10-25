@@ -24,7 +24,7 @@ public class MemberController {
 
 	@PostMapping("/v1/members")
 	public ResponseEntity<ApiResponse<MemberCreateResponse>> createMember(
-		@Valid @RequestBody MemberCreateRequest memberCreateRequest) {
+		@Valid @RequestBody final MemberCreateRequest memberCreateRequest) {
 		MemberCreateResponse memberCreateResponse = memberService.createMember(memberCreateRequest);
 		return ResponseEntity.ok(ApiResponse.success(memberCreateResponse));
 	}
