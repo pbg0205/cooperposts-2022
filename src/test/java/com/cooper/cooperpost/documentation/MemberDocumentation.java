@@ -27,9 +27,26 @@ public class MemberDocumentation extends Documentation {
 	@Autowired
 	private MemberService memberService;
 
-	@DisplayName("회원 생성")
+	private Snippet createMemberRequestSuccess() {
+		return requestFields(
+			fieldWithPath("name").type(JsonFieldType.STRING).description("이름(최소 3자, 최대 30자)"),
+			fieldWithPath("email").type(JsonFieldType.STRING).description("사용자 이메일"),
+			fieldWithPath("password").type(JsonFieldType.STRING).description("비밀번호(최소 8자, 최대 20자, 영대소문자, 숫자, 특수문자 포함")
+		);
+	}
+
+	private Snippet createMemberResponseSuccess() {
+		return responseFields(
+			fieldWithPath("result").type(JsonFieldType.STRING).description("결과 플래그"),
+			fieldWithPath("data").type(JsonFieldType.OBJECT).description("데이터"),
+			fieldWithPath("data.email").type(JsonFieldType.STRING).description("회원가입 완료 이메일"),
+			fieldWithPath("error").type(JsonFieldType.STRING).description("에러 정보").optional()
+		);
+	}
+
+	@DisplayName("회원 생성 성공")
 	@Test
-	void find_post_list_success() throws Exception {
+	void createMemberSuccess() throws Exception {
 		MemberCreateRequest memberCreateRequest = new MemberCreateRequest("cooper", "cooper@gmail.com", "Cooper1234!");
 		MemberCreateResponse memberCreateResponse = new MemberCreateResponse("cooper@gmail.com");
 
@@ -40,24 +57,33 @@ public class MemberDocumentation extends Documentation {
 				.accept(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(memberCreateRequest)))
 			.andExpect(status().isOk())
-			.andDo(document("create-member", createMemberRequest(), createMemberResponse()));
+			.andDo(document("create-member-success", createMemberRequestSuccess(), createMemberResponseSuccess()));
 	}
 
-	private Snippet createMemberRequest() {
-		return requestFields(
-			fieldWithPath("name").type(JsonFieldType.STRING).description("이름(최소 3자, 최대 30자)"),
-			fieldWithPath("email").type(JsonFieldType.STRING).description("사용자 이메일"),
-			fieldWithPath("password").type(JsonFieldType.STRING).description("비밀번호(최소 8자, 최대 20자, 영대소문자, 숫자, 특수문자 포함")
-		);
+	@DisplayName("회원 생성 실패")
+	@Test
+	void createMemberFail() throws Exception {
+		MemberCreateRequest memberCreateRequest = new MemberCreateRequest("cooper", "cooper@gmail.com", "Cooper123");
+		MemberCreateResponse memberCreateResponse = new MemberCreateResponse("cooper@gmail.com");
+
+		given(memberService.createMember(any())).willReturn(memberCreateResponse);
+
+		mockMvc.perform(RestDocumentationRequestBuilders.post("/api/v1/members")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(memberCreateRequest)))
+			.andExpect(status().isBadRequest())
+			.andDo(document("create-member-fail", createMemberResponseFail()));
 	}
 
-	private Snippet createMemberResponse() {
+	private Snippet createMemberResponseFail() {
 		return responseFields(
 			fieldWithPath("result").type(JsonFieldType.STRING).description("결과 플래그"),
-			fieldWithPath("data").type(JsonFieldType.OBJECT).description("데이터"),
-			fieldWithPath("data.email").type(JsonFieldType.STRING).description("회원가입 완료 이메일"),
-			fieldWithPath("error").type(JsonFieldType.STRING).description("에러 정보").optional()
+			fieldWithPath("data").type(JsonFieldType.OBJECT).description("데이터").optional(),
+			fieldWithPath("error").type(JsonFieldType.OBJECT).description("에러 정보"),
+			fieldWithPath("error.code").type(JsonFieldType.STRING).description("에러 코드"),
+			fieldWithPath("error.message").type(JsonFieldType.STRING).description("에러 메세지"),
+			fieldWithPath("error.data").type(JsonFieldType.OBJECT).description("에러 원인 데이터").optional()
 		);
 	}
-
 }
