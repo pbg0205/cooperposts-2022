@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.Length;
 
 @Length(max = 255)
 @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$",
-	message = "{error.E40003.message}")
+	message = "{E40003}")
 @NotBlank
 @Constraint(validatedBy = {})
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR,
