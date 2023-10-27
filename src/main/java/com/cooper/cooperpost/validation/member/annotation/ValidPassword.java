@@ -11,7 +11,7 @@ import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 
 @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$",
-	message = "E40001}")
+	message = "{E40001}")
 @Constraint(validatedBy = {})
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR,
 	ElementType.PARAMETER})
