@@ -1,6 +1,6 @@
 spring:
   messages:
-    basename: i18n/messages # default value
+    basename: classpath:i18n/messages
     encoding: UTF-8 # default value
     fallback-to-system-locale: false
   datasource:
