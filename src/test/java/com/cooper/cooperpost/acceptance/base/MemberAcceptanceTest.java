@@ -48,4 +48,14 @@ public class MemberAcceptanceTest extends AcceptanceTestBase {
 		);
 	}
 
+	@DisplayName("중복 이메일에 관한 검증")
+	@Test
+	void validateDuplicateEmail() {
+		//given, when
+		회원_생성_요청("cooper@gmail.com", "Cooper1234!", "cooper");
+		ExtractableResponse<Response> response = 회원_생성_요청("cooper@gmail.com", "Cooper1234!", "cooper");
+
+		//then
+		assertThat(response.statusCode()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+	}
 }
