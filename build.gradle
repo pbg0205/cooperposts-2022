@@ -9,6 +9,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+    id 'org.asciidoctor.jvm.convert' version '3.3.2'
 }
 
 group = 'com.cooper'
@@ -16,6 +17,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
+    asciidoctorExtensions // task 가 실행될 때, 클래스 경로를 추가된다.
     compileOnly {
         extendsFrom annotationProcessor
     }
@@ -63,12 +65,18 @@ dependencies {
 
     // rest assured
     testImplementation 'io.rest-assured:rest-assured:3.3.0'
+
+    // spring rest docs
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
+// querydsl
 def querydslDir = "$buildDir/generated/querydsl"
 querydsl {
     jpa = true
@@ -82,4 +90,21 @@ configurations {
 }
 compileQuerydsl {
     options.annotationProcessorPath = configurations.querydsl
+}
+
+// spring rest docs
+ext {
+    snippetsDir = file("$buildDir/generated-snippets")
+}
+
+test {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+asciidoctor {
+    configurations 'asciidoctorExtensions'
+    baseDirFollowsSourceFile() // include 연산 동작시, base directory 를 SourceFile 을 따르도록 하는 명령어
+    inputs.dir snippetsDir
+    dependsOn test
 }
