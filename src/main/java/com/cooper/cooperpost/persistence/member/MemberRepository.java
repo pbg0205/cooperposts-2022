@@ -8,4 +8,6 @@ import com.cooper.cooperpost.domain.member.Member;
 
 public interface MemberRepository extends JpaRepository<Member, UUID> {
 
+	boolean existsByEmail(String email);
+
 }

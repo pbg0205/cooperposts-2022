@@ -8,7 +8,9 @@ import lombok.RequiredArgsConstructor;
 import com.cooper.cooperpost.domain.member.Member;
 import com.cooper.cooperpost.dto.member.MemberCreateRequest;
 import com.cooper.cooperpost.dto.member.MemberCreateResponse;
+import com.cooper.cooperpost.exception.member.MemberExistenceException;
 import com.cooper.cooperpost.persistence.member.MemberRepository;
+import com.cooper.cooperpost.support.error.ErrorCode;
 
 @Service
 @RequiredArgsConstructor
@@ -19,11 +21,17 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberCreateResponse createMember(MemberCreateRequest memberCreateRequest) {
+		String emailInput = memberCreateRequest.getEmail();
+
+		if (memberRepository.existsByEmail(emailInput)) {
+			throw new MemberExistenceException(ErrorCode.E40004, emailInput);
+		}
+
 		String encodedPassword = passwordEncoder.encode(memberCreateRequest.getPassword());
 
 		Member member = Member.create(
 			memberCreateRequest.getName(),
-			memberCreateRequest.getEmail(),
+			emailInput,
 			encodedPassword
 		);
 
