@@ -33,11 +33,8 @@ jobs:
         run: chmod +x ./gradlew # (6)
         shell: bash
 
-      - name: Execute Gradle clean
-        uses: ./gradlew clean
-
       - name: Execute Gradle build
-        run: ./gradlew build
+        run: ./gradlew clean --info test
 
       - name: Stop containers
         if: always()
